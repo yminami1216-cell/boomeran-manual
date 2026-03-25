@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube投稿マニュアル｜八幡山ブーメラン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D62828; --red-light: #FFF0F0; --red-mid: #F5C0C0;
+    --blue: #1565C0; --blue-light: #E8F1FB; --blue-mid: #90B8E8;
+    --black: #1A1A1A; --gray: #555; --gray-light: #F5F5F5;
+    --border: #E0E0E0; --muted: #777;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F7F8FA; color: var(--black); font-family: 'Noto Sans JP', sans-serif; line-height: 1.7; font-size: 14px; }
+  .site-header { background: var(--black); padding: 36px 24px 28px; text-align: center; position: relative; overflow: hidden; }
+  .site-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red) 0%, #E94580 50%, var(--red) 100%); }
+  .logo-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+  .yt-icon { width: 38px; height: 27px; background: var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .yt-icon::after { content: ''; border-left: 13px solid white; border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
+  .site-header h1 { font-family: 'M PLUS Rounded 1c', sans-serif; font-size: clamp(18px,4.5vw,26px); font-weight: 900; color: white; }
+  .site-header .sub { font-size: 13px; color: #aaa; margin-top: 6px; }
+  .header-badge { display: inline-block; background: var(--red); color: white; font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-top: 10px; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  .toc { background: white; margin: 20px 0; border-radius: 14px; padding: 20px 22px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+  .toc-title { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 700; }
+  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+  .toc a { display: flex; align-items: center; gap: 8px; color: var(--blue); text-decoration: none; font-size: 13px; padding: 5px 0; border-bottom: 1px solid #f0f0f0; }
+  .toc a:hover { color: var(--red); }
+  .toc-num { background: var(--red); color: white; font-size: 10px; font-weight: 900; width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'M PLUS Rounded 1c', sans-serif; }
+  .section { margin-bottom: 28px; }
+  .section-header { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--black); border-radius: 12px 12px 0 0; border-left: 5px solid var(--red); }
+  .section-num { background: var(--red); color: white; font-family: 'M PLUS Rounded 1c', sans-serif; font-weight: 900; font-size: 17px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-title { font-family: 'M PLUS Rounded 1c', sans-serif; font-size: clamp(15px,3.5vw,18px); font-weight: 900; color: white; }
+  .section-body { background: white; border-radius: 0 0 12px 12px; border: 1px solid var(--border); border-top: none; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .card { background: white; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; border: 1px solid var(--border); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--red); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
+  .card-title::before { content: ''; width: 3px; height: 14px; background: var(--red); border-radius: 2px; display: inline-block; }
+  p { font-size: 14px; color: #333; margin-bottom: 8px; }
+  p:last-child { margin-bottom: 0; }
+  .steps { counter-reset: step; list-style: none; }
+  .steps li { counter-increment: step; display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; align-items: flex-start; color: #333; }
+  .steps li::before { content: counter(step); background: var(--red); color: white; font-weight: 900; font-size: 11px; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'M PLUS Rounded 1c', sans-serif; }
+  .bullets { list-style: none; }
+  .bullets li { font-size: 14px; padding: 4px 0 4px 20px; position: relative; color: #333; }
+  .bullets li::before { content: '・'; color: var(--red); position: absolute; left: 0; font-weight: 700; }
+  .warn { background: #FFFBF0; border-left: 3px solid #F5A623; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: #7A5300; margin-top: 12px; }
+  .warn::before { content: '⚠️　'; }
+  .ok { background: #F0FBF4; border-left: 3px solid #27AE60; border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: #1A6B3C; margin-top: 12px; }
+  .ok::before { content: '✅　'; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  th { background: var(--black); color: white; padding: 9px 12px; text-align: left; font-weight: 700; font-size: 12px; }
+  th:first-child { border-radius: 6px 0 0 0; } th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 9px 12px; border-bottom: 1px solid #F0F0F0; color: #333; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--gray-light); }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+  .pill-red { background: var(--red-light); color: var(--red); border: 1px solid var(--red-mid); }
+  .pill-blue { background: var(--blue-light); color: var(--blue); border: 1px solid var(--blue-mid); }
+  .pill-gray { background: var(--gray-light); color: var(--gray); border: 1px solid var(--border); }
+  .format-box { background: var(--red-light); border: 2px solid var(--red); border-radius: 10px; padding: 14px 18px; font-family: 'M PLUS Rounded 1c', sans-serif; font-size: clamp(12px,3vw,15px); font-weight: 700; color: var(--black); text-align: center; line-height: 1.6; margin: 12px 0; }
+  .format-note { font-size: 11px; color: var(--muted); font-weight: 400; font-family: 'Noto Sans JP', sans-serif; display: block; margin-top: 4px; }
+  .phone-wrap { display: flex; justify-content: center; gap: 20px; margin: 18px 0; flex-wrap: wrap; align-items: flex-start; }
+  .phone-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .phone { width: 160px; background: #1A1A1A; border-radius: 26px; border: 3px solid #2A2A2A; padding: 10px 7px 14px; box-shadow: 0 4px 20px rgba(0,0,0,.15); flex-shrink: 0; }
+  .phone-notch { width: 44px; height: 5px; background: #2A2A2A; border-radius: 3px; margin: 0 auto 8px; }
+  .phone-screen { background: #f9f9f9; border-radius: 14px; overflow: hidden; min-height: 260px; display: flex; flex-direction: column; }
+  .phone-label { font-size: 11px; color: var(--muted); font-weight: 700; text-align: center; max-width: 160px; line-height: 1.4; }
+  .phone-arrow { font-size: 18px; color: var(--red); font-weight: 900; align-self: center; }
+  .yt-bar { background: white; padding: 7px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+  .yt-logo-mini { display: flex; align-items: center; gap: 4px; }
+  .yt-icon-mini { width: 20px; height: 14px; background: #FF0000; border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+  .yt-icon-mini::after { content: ''; border-left: 6px solid white; border-top: 4px solid transparent; border-bottom: 4px solid transparent; margin-left: 1px; }
+  .yt-title-mini { font-size: 9px; font-weight: 900; color: #111; }
+  .yt-avatar { width: 18px; height: 18px; border-radius: 50%; background: #ccc; }
+  .yt-feed { flex: 1; background: #f2f2f2; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 9px; }
+  .yt-bottomnav { background: white; display: flex; border-top: 1px solid #eee; padding: 5px 0 3px; }
+  .yt-tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1px; font-size: 6px; color: #999; }
+  .yt-tab-ico { font-size: 11px; }
+  .yt-plus-circle { width: 26px; height: 26px; background: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; color: white; font-weight: 900; margin-top: -3px; outline: 3px solid var(--red); outline-offset: 2px; }
+  .yt-popup { background: white; border-top: 1px solid #eee; border-radius: 14px 14px 0 0; padding: 8px 6px 6px; }
+  .yt-popup-row { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 7px; font-size: 9px; color: #222; }
+  .yt-popup-row.hl { background: var(--red-light); border: 1.5px solid var(--red); color: var(--red); font-weight: 700; }
+  .yt-popup-ico { font-size: 13px; width: 18px; text-align: center; }
+  .yt-detail-header { background: #111; padding: 7px 9px; font-size: 9px; color: white; font-weight: 700; }
+  .yt-detail-content { padding: 8px; }
+  .yt-thumb { background: #ddd; height: 70px; border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 8px; }
+  .yt-field-label { font-size: 8px; color: #888; margin-bottom: 2px; }
+  .yt-field-input { border: 1.5px solid var(--red); border-radius: 5px; padding: 5px 7px; font-size: 7.5px; color: #111; width: 100%; margin-bottom: 8px; background: white; }
+  .yt-vis-label { font-size: 8px; color: #888; margin-bottom: 4px; }
+  .yt-vis-options { display: flex; gap: 3px; }
+  .yt-vis-opt { flex: 1; border: 1px solid #ddd; border-radius: 4px; padding: 4px 2px; font-size: 7px; text-align: center; color: #888; }
+  .yt-vis-opt.sel { border-color: var(--red); background: var(--red-light); color: var(--red); font-weight: 700; }
+  .yt-warn-mini { background: #FFF5F5; border: 1px solid var(--red); border-radius: 5px; padding: 5px 7px; font-size: 7.5px; color: var(--red); font-weight: 700; margin-top: 8px; }
+  .yt-menu-item { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-bottom: 1px solid #f0f0f0; font-size: 9px; color: #222; }
+  .yt-menu-item.hl { background: var(--red-light); border-left: 3px solid var(--red); font-weight: 700; color: var(--red); }
+  .yt-menu-ico { font-size: 12px; width: 16px; text-align: center; }
+  .yt-playlist-header { background: #111; padding: 7px 9px; font-size: 10px; color: white; font-weight: 700; }
+  .yt-playlist-item { display: flex; align-items: center; justify-content: space-between; padding: 7px 9px; border-bottom: 1px solid #f0f0f0; font-size: 9px; color: #222; }
+  .yt-check { width: 14px; height: 14px; border: 1.5px solid #ccc; border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+  .yt-check.on { background: var(--red); border-color: var(--red); color: white; font-size: 9px; }
+  .yt-new-playlist { display: flex; align-items: center; gap: 7px; padding: 8px 9px; font-size: 9px; color: var(--blue); font-weight: 700; border-radius: 6px; margin: 4px 6px; border: 1.5px solid var(--blue-mid); background: var(--blue-light); }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .faq-q { font-weight: 700; font-size: 13px; color: var(--black); margin-bottom: 6px; display: flex; gap: 8px; align-items: flex-start; }
+  .faq-q::before { content: 'Q'; background: var(--black); color: white; font-size: 10px; font-weight: 900; width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'M PLUS Rounded 1c', sans-serif; }
+  .faq-a { font-size: 13px; color: #444; display: flex; gap: 8px; align-items: flex-start; }
+  .faq-a::before { content: 'A'; background: var(--red); color: white; font-size: 10px; font-weight: 900; width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'M PLUS Rounded 1c', sans-serif; }
+  footer { background: var(--black); text-align: center; padding: 28px 16px; color: #888; font-size: 12px; margin-top: 32px; border-top: 4px solid var(--red); }
+  footer strong { color: white; }
+  @media (max-width: 480px) { .phone { width: 145px; } .toc-grid { grid-template-columns: 1fr; } .phone-arrow { display: none; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-row">
+    <div class="yt-icon"></div>
+    <h1>YouTube 動画投稿マニュアル</h1>
+  </div>
+  <p class="sub">🏐 八幡山ブーメラン｜試合記録用チャンネル</p>
+  <div><span class="header-badge">YouTubeアプリ版 · スマホ対応</span></div>
+</header>
+
+<div class="container">
+
+<nav class="toc">
+  <div class="toc-title">目次</div>
+  <div class="toc-grid">
+    <a href="#s1"><span class="toc-num">①</span>基本ルール</a>
+    <a href="#s2"><span class="toc-num">②</span>撮影のルール</a>
+    <a href="#s3"><span class="toc-num">③</span>動画のアップロード</a>
+    <a href="#s4"><span class="toc-num">④</span>タイトルの付け方</a>
+    <a href="#s5"><span class="toc-num">⑤</span>再生リストの作成と追加</a>
+    <a href="#s6"><span class="toc-num">⑥</span>チームへの共有</a>
+    <a href="#s7"><span class="toc-num">⑦</span>よくある質問</a>
+  </div>
+</nav>
+
+<!-- ① 基本ルール -->
+<section class="section" id="s1">
+  <div class="section-header"><div class="section-num">①</div><div class="section-title">基本ルール</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-title">このマニュアルについて</div>
+      <p>八幡山ブーメランの試合録画をYouTubeにアップロードする担当者向けの手順書です。複数名で運用するため、ルールを統一することが目的です。</p>
+      <ul class="bullets" style="margin-top:8px;">
+        <li>使用アプリ：<strong>YouTubeアプリ</strong>（通常版）1本で完結</li>
+        <li>使用端末：スマートフォン（iPhone / Android）</li>
+        <li>主な目的：試合記録の保存・チームメンバーへの共有</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">公開設定について</div>
+      <p>子どもが映る動画のため、<strong>全て「限定公開」</strong>で投稿します。</p>
+      <table style="margin-top:10px;">
+        <tr><th>設定</th><th>内容</th></tr>
+        <tr><td><span class="pill pill-red">公開</span></td><td>誰でも検索・視聴できる → <strong>使用禁止</strong></td></tr>
+        <tr><td><span class="pill pill-blue">限定公開</span></td><td>URLを知っている人のみ視聴 → <strong>必ずこちらを選択</strong></td></tr>
+        <tr><td><span class="pill pill-gray">非公開</span></td><td>自分のみ視聴 → 共有できないため不可</td></tr>
+      </table>
+      <div class="warn">アップロード時のデフォルトは「公開」です。必ず「限定公開」に変更してください。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ② 撮影 -->
+<section class="section" id="s2">
+  <div class="section-header"><div class="section-num">②</div><div class="section-title">撮影のルール</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-title">撮影前に確認すること</div>
+      <ul class="bullets">
+        <li>充電を確認（80%以上推奨）</li>
+        <li>ストレージの空き容量を確認（1試合あたり目安1〜3GB）</li>
+        <li><strong>横向き（ランドスケープ）で録画する</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">三脚使用時</div>
+      <ul class="bullets">
+        <li>コート全体が映る位置に設置（コート端の高めの位置が理想）</li>
+        <li>風で倒れないよう重心を確認する</li>
+        <li>録画開始・終了のタップを確実に</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">手持ち撮影時</div>
+      <ul class="bullets">
+        <li><strong>コート全体が映る位置で固定して撮影する</strong></li>
+        <li>選手を追いかけてカメラを動かさない</li>
+        <li>ズームは最小限（画質が落ちるため）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">アップロード前にメモしておくこと</div>
+      <table>
+        <tr><th>記録項目</th><th>例</th></tr>
+        <tr><td>試合日</td><td>2026年3月22日</td></tr>
+        <tr><td>大会名</td><td>〇〇春季大会</td></tr>
+        <tr><td>カテゴリ・ラウンド</td><td>ジュニア予選①、オフィシャル決勝</td></tr>
+        <tr><td>対戦相手</td><td>△△チーム</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ③ アップロード -->
+<section class="section" id="s3">
+  <div class="section-header"><div class="section-num">③</div><div class="section-title">動画のアップロード</div></div>
+  <div class="section-body">
+    <p style="margin-bottom:16px;">YouTubeアプリ（赤い▶アイコン）を使います。チームのGoogleアカウントでログインしてください。</p>
+
+    <div class="card">
+      <div class="card-title">Step 1｜＋ボタンをタップ</div>
+      <div class="phone-wrap">
+        <div class="phone-block">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="yt-bar"><div class="yt-logo-mini"><div class="yt-icon-mini"></div><span class="yt-title-mini">YouTube</span></div><div class="yt-avatar"></div></div>
+              <div class="yt-feed">動画フィード</div>
+              <div class="yt-bottomnav">
+                <div class="yt-tab"><span class="yt-tab-ico">🏠</span>ホーム</div>
+                <div class="yt-tab"><span class="yt-tab-ico">▶</span>ショート</div>
+                <div class="yt-tab" style="flex:none;padding:0 10px;"><div class="yt-plus-circle">＋</div></div>
+                <div class="yt-tab"><span class="yt-tab-ico">📺</span>登録</div>
+                <div class="yt-tab"><span class="yt-tab-ico">👤</span>マイページ</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-label">画面下中央の ＋ をタップ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 2｜「動画をアップロード」を選択</div>
+      <div class="phone-wrap">
+        <div class="phone-block">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div style="flex:1;background:#f2f2f2;"></div>
+              <div class="yt-popup">
+                <div class="yt-popup-row hl"><span class="yt-popup-ico">📤</span>動画をアップロード</div>
+                <div class="yt-popup-row"><span class="yt-popup-ico">✂️</span>ショートを作成</div>
+                <div class="yt-popup-row"><span class="yt-popup-ico">🔴</span>ライブ配信を開始</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-label">「動画をアップロード」をタップ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 3｜タイトルと公開設定を入力</div>
+      <div class="phone-wrap">
+        <div class="phone-block">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" style="min-height:auto;">
+              <div class="yt-detail-header">動画の詳細</div>
+              <div class="yt-detail-content">
+                <div class="yt-thumb">動画プレビュー</div>
+                <div class="yt-field-label">タイトル（必須）</div>
+                <div class="yt-field-input">【2026/03/22】〇〇大会（ジュニア予選①）vs △△</div>
+                <div class="yt-vis-label">公開設定</div>
+                <div class="yt-vis-options">
+                  <div class="yt-vis-opt">公開</div>
+                  <div class="yt-vis-opt sel">限定公開 ✓</div>
+                  <div class="yt-vis-opt">非公開</div>
+                </div>
+                <div class="yt-warn-mini">⚠ 必ず「限定公開」を選択！</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-label">タイトル入力後「限定公開」を選択</div>
+        </div>
+      </div>
+      <div class="warn">タイトルのフォーマットは④を参照してください。</div>
+      <div class="ok">iPhoneの場合、アップロードボタンが「青い横矢印（→）」で表示される場合があります。同じ操作でOKです。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">アップロード完了後にすること</div>
+      <ol class="steps">
+        <li>再生リストに追加する（⑤を参照）</li>
+        <li>チームLINEグループにURLを共有する（⑥を参照）</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ④ タイトル -->
+<section class="section" id="s4">
+  <div class="section-header"><div class="section-num">④</div><div class="section-title">タイトルの付け方</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-title">統一フォーマット</div>
+      <div class="format-box">
+        【日付】大会名（カテゴリ予選or本戦）vs 対戦相手
+        <span class="format-note">※ 第〇試合は必要な場合のみ追記</span>
+      </div>
+      <table>
+        <tr><th>パターン</th><th>タイトル例</th></tr>
+        <tr><td>ジュニア予選</td><td>【2026/03/22】〇〇春季大会（ジュニア予選①）vs △△</td></tr>
+        <tr><td>ジュニア本戦</td><td>【2026/03/22】〇〇春季大会（ジュニア本戦②）vs △△</td></tr>
+        <tr><td>キッズ準決勝</td><td>【2026/03/22】〇〇春季大会（キッズ準決勝）vs △△</td></tr>
+        <tr><td>オフィシャル決勝（複数試合）</td><td>【2026/03/22】〇〇春季大会（オフィシャル決勝）vs △△ 第1試合</td></tr>
+      </table>
+      <div class="ok">日付フォーマットは「YYYY/MM/DD」に統一（例：2026/03/22）</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ 再生リスト -->
+<section class="section" id="s5">
+  <div class="section-header"><div class="section-num">⑤</div><div class="section-title">再生リストの作成と追加</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-title">再生リストの整理方針</div>
+      <table>
+        <tr><th>再生リスト名</th><th>追加するもの</th></tr>
+        <tr><td>2026年 〇〇大会</td><td>各大会の試合動画（大会単位で作成）</td></tr>
+        <tr><td>2026年 練習試合</td><td>練習試合の全動画</td></tr>
+        <tr><td>月別アーカイブ</td><td>月ごとに全動画をまとめる</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title">新しい再生リストの作り方</div>
+      <ol class="steps">
+        <li>動画の「<strong>︙</strong>」をタップ</li>
+        <li>「<strong>保存先...</strong>」をタップ</li>
+        <li>「<strong>＋ 新しい再生リスト</strong>」をタップ</li>
+        <li>名前を入力し、公開設定を「<strong>限定公開</strong>」にして作成</li>
+      </ol>
+      <div class="phone-wrap" style="margin-top:16px;">
+        <div class="phone-block">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" style="min-height:auto;">
+              <div style="background:#ddd;height:75px;margin:8px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#999;">動画サムネイル</div>
+              <div class="yt-menu-item hl"><span class="yt-menu-ico">🔖</span>保存先...</div>
+              <div class="yt-menu-item"><span class="yt-menu-ico">🔗</span>リンクをコピー</div>
+              <div class="yt-menu-item"><span class="yt-menu-ico">✏️</span>動画を編集</div>
+              <div class="yt-menu-item"><span class="yt-menu-ico">🗑️</span>削除</div>
+            </div>
+          </div>
+          <div class="phone-label">「保存先...」をタップ</div>
+        </div>
+        <div class="phone-arrow">→</div>
+        <div class="phone-block">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" style="min-height:auto;">
+              <div class="yt-playlist-header">保存先...</div>
+              <div class="yt-playlist-item"><span>Watch later</span><div class="yt-check"></div></div>
+              <div class="yt-playlist-item"><span>2026年 〇〇大会</span><div class="yt-check on">✓</div></div>
+              <div class="yt-new-playlist"><span style="font-size:14px;">＋</span>新しい再生リスト</div>
+            </div>
+          </div>
+          <div class="phone-label">「＋ 新しい再生リスト」をタップ</div>
+        </div>
+      </div>
+      <div class="warn">再生リストの公開設定も「限定公開」にしてください。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">既存の再生リストに追加する場合</div>
+      <ol class="steps">
+        <li>動画の「<strong>︙</strong>」→「<strong>保存先...</strong>」をタップ</li>
+        <li>追加したい再生リストにチェックを入れる</li>
+        <li>画面を閉じると自動で保存される</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 共有 -->
+<section class="section" id="s6">
+  <div class="section-header"><div class="section-num">⑥</div><div class="section-title">チームへの共有方法</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-title">URLのコピー方法</div>
+      <ol class="steps">
+        <li>動画の「<strong>︙</strong>」をタップ</li>
+        <li>「<strong>リンクをコピー</strong>」をタップ</li>
+        <li>コピーしたURLをチームLINEグループに貼り付け</li>
+      </ol>
+      <div class="warn">限定公開のURLは外部SNS（X・Instagram等）には貼らないでください。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">再生リストのURLを共有する場合</div>
+      <ol class="steps">
+        <li>マイページ → チャンネルを表示</li>
+        <li>再生リストを開く</li>
+        <li>「<strong>︙</strong>」→「<strong>リンクをコピー</strong>」</li>
+      </ol>
+      <div class="ok">大会ごとにまとめたURLを共有すると、保護者が探しやすくなります。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ FAQ -->
+<section class="section" id="s7">
+  <div class="section-header"><div class="section-num">⑦</div><div class="section-title">よくある質問</div></div>
+  <div class="section-body">
+    <div class="card">
+      <div class="faq-item"><div class="faq-q">動画が縦向きになってしまった</div><div class="faq-a">スマホを横向きにしてから録画を開始してください。録画中に向きを変えても反映されません。</div></div>
+      <div class="faq-item"><div class="faq-q">「公開」で投稿してしまった</div><div class="faq-a">動画の「︙」→「編集」→公開設定を「限定公開」に変更できます。</div></div>
+      <div class="faq-item"><div class="faq-q">スマホの容量が足りない</div><div class="faq-a">アップロード後、スマホ本体の動画を削除してOKです。YouTubeに保存されています。</div></div>
+      <div class="faq-item"><div class="faq-q">1日に10本以上アップしたい</div><div class="faq-a">まとめてアップロードし、タイトルと再生リストを後でまとめて編集すると効率的です。</div></div>
+      <div class="faq-item"><div class="faq-q">再生リストが見つからない</div><div class="faq-a">チーム管理者に連絡し、再生リストを作成してもらってから追加してください。</div></div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <div class="card-title">困ったときの連絡先</div>
+      <ul class="bullets">
+        <li>チャンネル管理担当：　　　　　（記入欄）</li>
+        <li>連絡先：</li>
+      </ul>
+      <p style="margin-top:10px;color:var(--muted);font-size:12px;">マニュアルの更新があった場合は、LINEグループでお知らせします。</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <strong>🏐 八幡山ブーメラン</strong><br>
+  YouTube動画投稿マニュアル｜作成日：2026年3月　※随時更新
+</footer>
+
+</body>
+</html>
